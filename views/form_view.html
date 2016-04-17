@@ -1,68 +1,154 @@
 <!DOCTYPE html >
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <script src="../bower_components/angular/angular.js"></script>
-        <script src="../bower_components/angular-route/angular-route.js"></script>
-        <script src="../app.js"></script>
-        <script src="../scripts/controllers/view1.js"></script>
-        <script src="../components/version/version.js"></script>
-        <script src="../components/version/version-directive.js"></script>
-        <script src="../components/version/interpolate-filter.js"></script>
-        <script src="../bower_components/file-saver.js/FileSaver.js"></script>
-        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../app.js"></script>
+    <script src="../scripts/controllers/view1.js"></script>
+    <script src="../components/version/version.js"></script>
+    <script src="../components/version/version-directive.js"></script>
+    <script src="../components/version/interpolate-filter.js"></script>
+    <script src="../bower_components/file-saver.js/FileSaver.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../app.css">
-        <title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../app.css">
+    <title>
 
-        </title>
+    </title>
 
-    </head>
-    <body  ng-app="myApp">
-    <div class="my-form">
-        <form ng-controller="View1Ctrl">
+</head>
+<body ng-app="myApp">
+<div class="my-form">
+    <form ng-controller="View1Ctrl">
 
 
-            <div class="form-group">
-                <label for="scouter_name">Name</label>
-                <input type="text" class="form-control" id="scouter_name" placeholder="Enter your Name" ng-model="scouter_name" >
-            </div>
+        <div class="form-group">
+            <label for="scouter_name">Name</label>
+            <input type="text" class="form-control" id="scouter_name" placeholder="Enter your Name"
+                   ng-model="scouter_name">
+        </div>
 
-            <div class="form-group">
-                <label for="team_number">Team Number</label>
-                <input type="text" class="form-control" id="team_number" placeholder="Enter team number" ng-model="team_number">
-            </div>
+        <div class="form-group">
+            <label for="team_number">Team Number</label>
+            <input type="text" class="form-control" id="team_number" placeholder="Enter team number"
+                   ng-model="team_number">
+        </div>
 
-            <div class="form-group">
-                <label for="match_number">Match Number</label>
-                <input type="number" class="form-control" id="match_number" placeholder="Enter match number" ng-model="match_number">
-            </div>
+        <div class="form-group">
+            <label for="match_number">Match Number</label>
+            <input type="number" class="form-control" id="match_number" placeholder="Enter match number"
+                   ng-model="match_number">
+        </div>
 
-            <hr class="separator">
+        <hr class="separator">
 
-            <label for="option1">Category A</label>
-            <div class="btn-group " data-toggle="buttons">
+        <label>Category A</label>
+        <div class="btn-group " data-toggle="buttons">
 
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="portcullis" autocomplete="off">
+                Portcullis <br> (שער סורגים)
+            </label>
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="cheval-de-frise" autocomplete="off">
+                Cheval de Frise <br> (נדנדות)
+            </label>
+        </div>
+
+        <label>Category B</label>
+        <div class="btn-group " data-toggle="buttons">
+
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="moat" autocomplete="off">
+                Moat <br> (חפיר)
+            </label>
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="option2" autocomplete="off">
+                Ramparts <br> (רמפות סטטיות)
+            </label>
+        </div>
+
+        <label>Category C</label>
+        <div class="btn-group " data-toggle="buttons">
+
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="drawbridge" autocomplete="off">
+                Drawbridge <br> (שער מתרומם)
+            </label>
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="sally-port" autocomplete="off">
+                Sally Port <br> (דלת צד)
+            </label>
+        </div>
+
+        <label>Category D</label>
+        <div class="btn-group " data-toggle="buttons">
+
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="rough-terrain" autocomplete="off">
+                Rough Terrain <br> (שטח מחוספס)
+            </label>
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="rock-wall" autocomplete="off">
+                Rock Wall <br> (קיר אבן)
+            </label>
+        </div>
+
+        <hr class="separator">
+
+        <label>Did The robot "Reached" the defence line?</label>
+        <div class="btn-group " data-toggle="buttons">
+
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="reached-yes" autocomplete="off">
+                Yes <br> (כן)
+            </label>
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="reached-no" autocomplete="off">
+                No <br> (לא)
+            </label>
+        </div>
+
+        <label>Which defence the robot crossed in The Auto?</label>
+        <div class="btn-group" data-toggle="buttons">
+            <div class="btn-group">
                 <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="option1" autocomplete="off">
-                    Portcullis <br> (שער סורגים)
+                    <input type="radio" name="options" id="corssed-none" autocomplete="off">
+                    None
                 </label>
                 <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="option2" autocomplete="off">
-                    Cheval de Frise <br> (נדנדות)
+                    <input type="radio" name="options" id="crossed-low-bar" autocomplete="off">
+                    Low Bar
                 </label>
             </div>
+            <div class="btn-group">
+                <label class="btn btn-lg btn-primary col-xs-6">
+                    <input type="radio" name="options" id="crossed-from-A" autocomplete="off">
+                    From A
+                </label>
+                <label class="btn btn-lg btn-primary col-xs-6">
+                    <input type="radio" name="options" id="crossed-from-B" autocomplete="off">
+                    From B
+                </label>
+            </div>
+            <div class="btn-group">
+                <label class="btn btn-lg btn-primary col-xs-6">
+                    <input type="radio" name="options" id="crossed-from-C" autocomplete="off">
+                    From C
+                </label>
+                <label class="btn btn-lg btn-primary col-xs-6">
+                    <input type="radio" name="options" id="crossed-from-D" autocomplete="off">
+                    From D
+                </label>
+            </div>
+        </div>
 
 
-
-
-
-            <a></a>
-
-        </form>
-    </div>
-    </body>
+    </form>
+</div>
+</body>
 
 </html>

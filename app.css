@@ -14,7 +14,8 @@
     margin-bottom: 0; }
   .my-form .btn-group {
     align-self: center;
-    width: 100%; }
+    width: 100%;
+    margin-bottom: 10px; }
     .my-form .btn-group label {
       font-family: Arial;
       font-size: 50px !important; }
