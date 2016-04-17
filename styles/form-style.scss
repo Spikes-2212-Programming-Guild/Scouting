@@ -51,6 +51,14 @@
     }
   }
 
+  .save-button {
+    font-family: Arial;
+    font-size: $form_text_size !important;
+    height: $form_text_fields_height;
+    background-color: #337ab7;
+    margin-top: 15px;
+  }
+
   .separator{
     margin: 50px auto 50px auto;
     width: 92%;
