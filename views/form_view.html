@@ -144,8 +144,34 @@
                     From D
                 </label>
             </div>
+
+
         </div>
 
+        <label>In auto, the robot scored to:</label>
+        <div class="btn-group " data-toggle="buttons">
+
+            <label class="btn btn-lg btn-primary col-xs-4">
+                <input type="radio" name="options" id="score-nowhere" autocomplete="off">
+                Nowhere <br> (לא קלע)
+            </label>
+            <label class="btn btn-lg btn-primary col-xs-4">
+                <input type="radio" name="options" id="score-low" autocomplete="off">
+                Low <br> (שער נמוך)
+            </label>
+            <label class="btn btn-lg btn-primary col-xs-4">
+                <input type="radio" name="options" id="score-high" autocomplete="off">
+                High <br> (שער גבוה)
+            </label>
+        </div>
+
+        <hr class="separator">
+
+        <div class="form-group">
+            <label for="team_number">In teleop, how many time the robot crossed the "Low Bar"</label>
+            <input type="text" class="form-control" id="crosses-low-bar" placeholder="Enter number of low bar crossing"
+                   ng-model="crosses-low-bar">
+        </div>
 
     </form>
 </div>
