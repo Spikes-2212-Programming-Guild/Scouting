@@ -7,6 +7,10 @@
   .my-form label {
     font-family: Arial;
     font-size: 70px !important; }
+  .my-form textarea {
+    font-family: Arial;
+    font-size: 70px !important;
+    height: 300px; }
   .my-form .form-group input {
     font-family: Arial;
     font-size: 70px !important;

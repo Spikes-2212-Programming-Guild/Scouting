@@ -53,7 +53,7 @@
                 Portcullis <br> (שער סורגים)
             </label>
             <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="cheval-de-frise" autocomplete="off">
+                <input type="radio" name="options" id="cheval_de_frise" autocomplete="off">
                 Cheval de Frise <br> (נדנדות)
             </label>
         </div>
@@ -79,7 +79,7 @@
                 Drawbridge <br> (שער מתרומם)
             </label>
             <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="sally-port" autocomplete="off">
+                <input type="radio" name="options" id="sally_port" autocomplete="off">
                 Sally Port <br> (דלת צד)
             </label>
         </div>
@@ -88,11 +88,11 @@
         <div class="btn-group " data-toggle="buttons">
 
             <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="rough-terrain" autocomplete="off">
+                <input type="radio" name="options" id="rough_terrain" autocomplete="off">
                 Rough Terrain <br> (שטח מחוספס)
             </label>
             <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="rock-wall" autocomplete="off">
+                <input type="radio" name="options" id="rock_wall" autocomplete="off">
                 Rock Wall <br> (קיר אבן)
             </label>
         </div>
@@ -103,11 +103,11 @@
         <div class="btn-group " data-toggle="buttons">
 
             <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="reached-yes" autocomplete="off">
+                <input type="radio" name="options" id="reached_yes" autocomplete="off">
                 Yes <br> (כן)
             </label>
             <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="reached-no" autocomplete="off">
+                <input type="radio" name="options" id="reached_no" autocomplete="off">
                 No <br> (לא)
             </label>
         </div>
@@ -116,31 +116,31 @@
         <div class="btn-group" data-toggle="buttons">
             <div class="btn-group">
                 <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="corssed-none" autocomplete="off">
+                    <input type="radio" name="options" id="corssed_none" autocomplete="off">
                     None
                 </label>
                 <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="crossed-low-bar" autocomplete="off">
+                    <input type="radio" name="options" id="crossed_low_bar" autocomplete="off">
                     Low Bar
                 </label>
             </div>
             <div class="btn-group">
                 <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="crossed-from-A" autocomplete="off">
+                    <input type="radio" name="options" id="crossed_from_A" autocomplete="off">
                     From A
                 </label>
                 <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="crossed-from-B" autocomplete="off">
+                    <input type="radio" name="options" id="crossed_from_B" autocomplete="off">
                     From B
                 </label>
             </div>
             <div class="btn-group">
                 <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="crossed-from-C" autocomplete="off">
+                    <input type="radio" name="options" id="crossed_from_C" autocomplete="off">
                     From C
                 </label>
                 <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="crossed-from-D" autocomplete="off">
+                    <input type="radio" name="options" id="crossed_from_D" autocomplete="off">
                     From D
                 </label>
             </div>
@@ -152,26 +152,124 @@
         <div class="btn-group " data-toggle="buttons">
 
             <label class="btn btn-lg btn-primary col-xs-4">
-                <input type="radio" name="options" id="score-nowhere" autocomplete="off">
+                <input type="radio" name="options" id="score_nowhere" autocomplete="off">
                 Nowhere <br> (לא קלע)
             </label>
             <label class="btn btn-lg btn-primary col-xs-4">
-                <input type="radio" name="options" id="score-low" autocomplete="off">
+                <input type="radio" name="options" id="score_low" autocomplete="off">
                 Low <br> (שער נמוך)
             </label>
             <label class="btn btn-lg btn-primary col-xs-4">
-                <input type="radio" name="options" id="score-high" autocomplete="off">
+                <input type="radio" name="options" id="score_high" autocomplete="off">
                 High <br> (שער גבוה)
             </label>
         </div>
 
         <hr class="separator">
 
+
         <div class="form-group">
-            <label for="team_number">In teleop, how many time the robot crossed the "Low Bar"</label>
-            <input type="text" class="form-control" id="crosses-low-bar" placeholder="Enter number of low bar crossing"
-                   ng-model="crosses-low-bar">
+            <label for="crosses_low_bar">In teleop, how many time the robot crossed the "Low Bar"</label>
+            <input type="number" class="form-control" id="crosses_low_bar" placeholder="Enter number of low bar crossing"
+                   ng-model="crosses_low_bar">
         </div>
+
+        <div class="form-group">
+            <label for="crosses_A">In teleop, how many time the robot crossed "Category A"?</label>
+            <input type="number" class="form-control" id="crosses_A" placeholder="Enter number of  Category A crossing"
+                   ng-model="crosses_A">
+        </div>
+
+        <div class="form-group">
+            <label for="crosses_B">In teleop, how many time the robot crossed the "Category B"?</label>
+            <input type="number" class="form-control" id="crosses_B" placeholder="Enter number of Category B crossing"
+                   ng-model="crosses_B">
+        </div>
+
+        <div class="form-group">
+            <label for="crosses_C">In teleop, how many time the robot crossed the "Category C"?</label>
+            <input type="number" class="form-control" id="crosses_C" placeholder="Enter number of Category C crossing"
+                   ng-model="crosses_C">
+        </div>
+
+
+        <div class="form-group">
+            <label for="crosses_D">In teleop, how many time the robot crossed the "Category D"?</label>
+            <input type="number" class="form-control" id="crosses_D" placeholder="Enter number of Category D crossing"
+                   ng-model="crosses_D">
+        </div>
+
+        <div class="form-group">
+            <label for="scores_high">In teleop, how many times the robot scored into the high goal?</label>
+            <input type="number" class="form-control" id="scores_high" placeholder="Enter scores to high goal"
+                   ng-model="scores_high">
+        </div>
+
+        <div class="form-group">
+            <label for="tries_high">In teleop, how many times the robot tried to score into the high goal?</label>
+            <input type="number" class="form-control" id="tries_high" placeholder="Enter tries to high goal"
+                   ng-model="tries_high">
+        </div>
+
+        <div class="form-group">
+            <label for="scores_low">In teleop, how many times the robot scored into the low goal?</label>
+            <input type="number" class="form-control" id="scores_low" placeholder="Enter scores to low goal"
+                   ng-model="scores_low">
+        </div>
+
+        <div class="form-group">
+            <label for="tries_low">In teleop, how many times the robot tried to scored into the low goal?</label>
+            <input type="number" class="form-control" id="tries_low" placeholder="Enter tries to low goal"
+                   ng-model="tries_low">
+        </div>
+
+        <hr class="separator">
+
+        <label>Did The robot tried to do SCALE?</label>
+        <div class="btn-group " data-toggle="buttons">
+
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="scale-try-yes" autocomplete="off">
+                Yes <br> (כן)
+            </label>
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="scale-try-no" autocomplete="off">
+                No <br> (לא)
+            </label>
+        </div>
+
+        <label>Did The robot succeeded doing SCALE?</label>
+        <div class="btn-group " data-toggle="buttons">
+
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="scale-yes" autocomplete="off">
+                Yes <br> (כן)
+            </label>
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="scale-no" autocomplete="off">
+                No <br> (לא)
+            </label>
+        </div>
+
+
+        <label>Did The robot was a defence robot?</label>
+        <div class="btn-group " data-toggle="buttons">
+
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="defence-yes" autocomplete="off">
+                Yes <br> (כן)
+            </label>
+            <label class="btn btn-lg btn-primary col-xs-6">
+                <input type="radio" name="options" id="defence-no" autocomplete="off">
+                No <br> (לא)
+            </label>
+        </div>
+
+        <hr class="separator">
+
+
+        <label>Comments: </label>
+        <textarea class="form-control" rows="3"></textarea>
 
     </form>
 </div>

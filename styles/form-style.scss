@@ -16,6 +16,13 @@
 
   }
 
+  textarea{
+      font-family: Arial;
+      font-size: $form_text_size !important;
+      height: $form_text_fields_height * 3;
+    }
+
+
   .form-group {
 
     input{
