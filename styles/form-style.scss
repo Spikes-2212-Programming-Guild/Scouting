@@ -8,13 +8,19 @@
   padding-left: 20px;
   padding-right: 20px;
 
+  label{
+    font-family: Arial;
+
+    font-size: $form_text_size !important;
+
+
+  }
+
   .form-group {
 
-    label{
-      font-family: Arial;
 
-      font-size: $form_text_size !important;
-    }
+
+
     input{
       //width: 100%;
       font-family: Arial;
@@ -30,9 +36,12 @@
   .btn-group{
     align-self: center;
     width: 100%;
-    height: $form_text_fields_height;
-    label {
-      height: $form_text_fields_height;
+
+    label{
+      font-family: Arial;
+
+      font-size: $form_button_text_size !important;
+
 
     }
   }
