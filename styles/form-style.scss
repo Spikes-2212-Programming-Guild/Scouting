@@ -40,13 +40,23 @@
   .btn-group{
     align-self: center;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    div{
+
+      margin-bottom: 10px;
+      button{
+        width: 100%;
+        font-family: Arial;
+
+        font-size: $form_button_text_size !important;
+      }
+    }
 
     label{
+
       font-family: Arial;
 
       font-size: $form_button_text_size !important;
-
 
     }
   }
@@ -55,13 +65,12 @@
     font-family: Arial;
     font-size: $form_text_size !important;
     height: $form_text_fields_height;
-    background-color: #337ab7;
     color: #FFFFFF;
-    margin-top: 15px;
+    background-color: #337ab7;
   }
 
   .separator{
-    margin: 50px auto 50px auto;
+    margin: 0 auto 30px auto;
     width: 92%;
     border: 1px solid #000000;
 

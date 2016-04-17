@@ -12,6 +12,7 @@
     <script src="../bower_components/file-saver.js/FileSaver.js"></script>
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script srr="../components/ui-bootstrap-tpls-1.3.2.min.js"></script>
 
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../app.css">
@@ -21,260 +22,362 @@
 
 </head>
 <body ng-app="myApp">
-<div class="my-form">
-    < ng-controller="View1Ctrl">
+<div class="my-form" ng-controller="View1Ctrl">
+    <div class="form-group">
+        <label for="scouter_name">Name</label>
+        <input type="text" class="form-control" id="scouter_name" placeholder="Enter your Name"
+               ng-model="info.scouter_name">
+    </div>
 
+    <div class="form-group">
+        <label for="team_number">Team Number</label>
+        <input type="text" class="form-control" id="team_number" placeholder="Enter team number"
+               ng-model="info.team_number">
+    </div>
 
-        <div class="form-group">
-            <label for="scouter_name">Name</label>
-            <input type="text" class="form-control" id="scouter_name" placeholder="Enter your Name"
-                   ng-model="scouter_name">
-        </div>
+    <div class="form-group">
+        <label for="match_number">Match Number</label>
+        <input type="number" class="form-control" id="match_number" placeholder="Enter match number"
+               ng-model="info.match_number">
+    </div>
 
-        <div class="form-group">
-            <label for="team_number">Team Number</label>
-            <input type="text" class="form-control" id="team_number" placeholder="Enter team number"
-                   ng-model="team_number">
-        </div>
+    <hr class="separator">
 
-        <div class="form-group">
-            <label for="match_number">Match Number</label>
-            <input type="number" class="form-control" id="match_number" placeholder="Enter match number"
-                   ng-model="match_number">
-        </div>
+    <label>Category A</label>
 
-        <hr class="separator">
-
-        <label>Category A</label>
-        <div class="btn-group " data-toggle="buttons">
-
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="portcullis" autocomplete="off">
+    <div class="col-xs-12 btn-group">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                id="portcullis" ng-class="{'active': getDefence('A') == 'portcullis'}"
+             ng-click="setDefence('A', 'portcullis')">
                 Portcullis <br> (שער סורגים)
-            </label>
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="cheval_de_frise" autocomplete="off">
+            </button>
+        </div>
+
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="cheval-de-frise" ng-class="{'active': getDefence('A') == 'cheval-de-frise'}"
+                    ng-click="setDefence('A', 'cheval-de-frise')">
                 Cheval de Frise <br> (נדנדות)
-            </label>
+            </button>
         </div>
 
-        <label>Category B</label>
-        <div class="btn-group " data-toggle="buttons">
+    </div> <br>
 
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="moat" autocomplete="off">
+
+    <label>Category B</label>
+
+    <div class="col-xs-12 btn-group">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="moat" ng-class="{'active': getDefence('B') == 'moat'}"
+                    ng-click="setDefence('B', 'moat')">
                 Moat <br> (חפיר)
-            </label>
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="option2" autocomplete="off">
+            </button>
+        </div>
+
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="ramparts" ng-class="{'active': getDefence('B') == 'ramparts'}"
+                    ng-click="setDefence('B', 'ramparts')">
                 Ramparts <br> (רמפות סטטיות)
-            </label>
+            </button>
         </div>
 
-        <label>Category C</label>
-        <div class="btn-group " data-toggle="buttons">
+    </div> <br>
 
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="drawbridge" autocomplete="off">
+    <label>Category C</label>
+
+    <div class="col-xs-12 btn-group">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="drawbridge" ng-class="{'active': getDefence('C') == 'drawbridge'}"
+                    ng-click="setDefence('C', 'drawbridge')">
                 Drawbridge <br> (שער מתרומם)
-            </label>
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="sally_port" autocomplete="off">
+            </button>
+        </div>
+
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="sally-port" ng-class="{'active': getDefence('C') == 'sally-port'}"
+                    ng-click="setDefence('C', 'sally-port')">
                 Sally Port <br> (דלת צד)
-            </label>
+            </button>
         </div>
 
-        <label>Category D</label>
-        <div class="btn-group " data-toggle="buttons">
+    </div> <br>
 
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="rough_terrain" autocomplete="off">
+    <label>Category D</label>
+
+    <div class="col-xs-12 btn-group">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="rough-terrain" ng-class="{'active': getDefence('D') == 'rough-terrain'}"
+                    ng-click="setDefence('D', 'rough-terrain')">
                 Rough Terrain <br> (שטח מחוספס)
-            </label>
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="rock_wall" autocomplete="off">
+            </button>
+        </div>
+
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="rock-wall" ng-class="{'active': getDefence('D') == 'rock-wall'}"
+                    ng-click="setDefence('D', 'rock-wall')">
                 Rock Wall <br> (קיר אבן)
-            </label>
+            </button>
         </div>
 
-        <hr class="separator">
+    </div> <br>
 
-        <label>Did The robot "Reached" the defence line?</label>
-        <div class="btn-group " data-toggle="buttons">
 
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="reached_yes" autocomplete="off">
+
+
+    <hr class="separator">
+
+    <label>Did The robot "Reached" the defence line?</label>
+
+    <div class="col-xs-12 btn-group">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="reached_yes" ng-class="{'active': getMissionAuto('reached')}"
+                    ng-click="setMissionAuto('reached', true)">
                 Yes <br> (כן)
-            </label>
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="reached_no" autocomplete="off">
+            </button>
+        </div>
+
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="reached_no" ng-class="{'active': !getMissionAuto('reached') && getMissionAuto('reached') !== undefined}"
+                    ng-click="setMissionAuto('reached', false)">
                 No <br> (לא)
-            </label>
+            </button>
         </div>
 
-        <label>Which defence the robot crossed in The Auto?</label>
-        <div class="btn-group" data-toggle="buttons">
-            <div class="btn-group">
-                <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="corssed_none" autocomplete="off">
-                    None
-                </label>
-                <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="crossed_low_bar" autocomplete="off">
-                    Low Bar
-                </label>
-            </div>
-            <div class="btn-group">
-                <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="crossed_from_A" autocomplete="off">
-                    From A
-                </label>
-                <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="crossed_from_B" autocomplete="off">
-                    From B
-                </label>
-            </div>
-            <div class="btn-group">
-                <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="crossed_from_C" autocomplete="off">
-                    From C
-                </label>
-                <label class="btn btn-lg btn-primary col-xs-6">
-                    <input type="radio" name="options" id="crossed_from_D" autocomplete="off">
-                    From D
-                </label>
-            </div>
+    </div> <br>
+
+    <label>Which defence the robot crossed in The Auto?</label>
 
 
+    <div class="col-xs-12 btn-group">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="corssed_none" ng-class="{'active': getMissionAuto('crosses') == 'none'}"
+                    ng-click="setMissionAuto('crosses', 'none')">
+                None
+            </button>
         </div>
 
-        <label>In auto, the robot scored to:</label>
-        <div class="btn-group " data-toggle="buttons">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="corssed_low_bar" ng-class="{'active': getMissionAuto('crosses') == 'low-bar'}"
+                    ng-click="setMissionAuto('crosses', 'low-bar')">
+                Low Bar
+            </button>
+        </div>
 
-            <label class="btn btn-lg btn-primary col-xs-4">
-                <input type="radio" name="options" id="score_nowhere" autocomplete="off">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="corssed_A" ng-class="{'active': getMissionAuto('crosses') == 'A'}"
+                    ng-click="setMissionAuto('crosses', 'A')">
+                From A
+            </button>
+        </div>
+
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="corssed_B" ng-class="{'active': getMissionAuto('crosses') == 'B'}"
+                    ng-click="setMissionAuto('crosses', 'B')">
+                from B
+            </button>
+        </div>
+
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="corssed_C" ng-class="{'active': getMissionAuto('crosses') == 'C'}"
+                    ng-click="setMissionAuto('crosses', 'C')">
+                from C
+            </button>
+        </div>
+
+
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="corssed_D" ng-class="{'active': getMissionAuto('crosses') == 'D'}"
+                    ng-click="setMissionAuto('crosses', 'D')">
+                from D
+            </button>
+        </div>
+
+    </div> <br>
+
+
+    <label>In auto, the robot scored to:</label>
+
+    <div class="col-xs-12 btn-group">
+        <div class="col-xs-4">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="score_nowhere" ng-class="{'active': getMissionAuto('score') == 'none'}"
+                    ng-click="setMissionAuto('score', 'none')">
                 Nowhere <br> (לא קלע)
-            </label>
-            <label class="btn btn-lg btn-primary col-xs-4">
-                <input type="radio" name="options" id="score_low" autocomplete="off">
-                Low <br> (שער נמוך)
-            </label>
-            <label class="btn btn-lg btn-primary col-xs-4">
-                <input type="radio" name="options" id="score_high" autocomplete="off">
+            </button>
+        </div>
+
+        <div class="col-xs-4">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="score_high" ng-class="{'active': getMissionAuto('score') == 'high'}"
+                    ng-click="setMissionAuto('score', 'high')">
                 High <br> (שער גבוה)
-            </label>
+            </button>
         </div>
 
-        <hr class="separator">
-
-
-        <div class="form-group">
-            <label for="crosses_low_bar">In teleop, how many time the robot crossed the "Low Bar"</label>
-            <input type="number" class="form-control" id="crosses_low_bar" placeholder="Enter number of low bar crossing"
-                   ng-model="crosses_low_bar">
+        <div class="col-xs-4">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="score_low" ng-class="{'active': getMissionAuto('score') == 'low'}"
+                    ng-click="setMissionAuto('score', 'low')">
+                Low <br> (שער נמוך)
+            </button>
         </div>
 
-        <div class="form-group">
-            <label for="crosses_A">In teleop, how many time the robot crossed "Category A"?</label>
-            <input type="number" class="form-control" id="crosses_A" placeholder="Enter number of  Category A crossing"
-                   ng-model="crosses_A">
-        </div>
-
-        <div class="form-group">
-            <label for="crosses_B">In teleop, how many time the robot crossed the "Category B"?</label>
-            <input type="number" class="form-control" id="crosses_B" placeholder="Enter number of Category B crossing"
-                   ng-model="crosses_B">
-        </div>
-
-        <div class="form-group">
-            <label for="crosses_C">In teleop, how many time the robot crossed the "Category C"?</label>
-            <input type="number" class="form-control" id="crosses_C" placeholder="Enter number of Category C crossing"
-                   ng-model="crosses_C">
-        </div>
+    </div> <br>
 
 
-        <div class="form-group">
-            <label for="crosses_D">In teleop, how many time the robot crossed the "Category D"?</label>
-            <input type="number" class="form-control" id="crosses_D" placeholder="Enter number of Category D crossing"
-                   ng-model="crosses_D">
-        </div>
+    <hr class="separator">
 
-        <div class="form-group">
-            <label for="scores_high">In teleop, how many times the robot scored into the high goal?</label>
-            <input type="number" class="form-control" id="scores_high" placeholder="Enter scores to high goal"
-                   ng-model="scores_high">
-        </div>
 
-        <div class="form-group">
-            <label for="tries_high">In teleop, how many times the robot tried to score into the high goal?</label>
-            <input type="number" class="form-control" id="tries_high" placeholder="Enter tries to high goal"
-                   ng-model="tries_high">
-        </div>
+    <div class="form-group">
+        <label for="crosses_low_bar">In teleop, how many time the robot crossed the "Low Bar"?</label>
+        <input type="number" class="form-control" id="crosses_low_bar"
+               placeholder="Enter number of low bar crossing"
+               ng-model="teleop.crosses_low_bar">
+    </div>
 
-        <div class="form-group">
-            <label for="scores_low">In teleop, how many times the robot scored into the low goal?</label>
-            <input type="number" class="form-control" id="scores_low" placeholder="Enter scores to low goal"
-                   ng-model="scores_low">
-        </div>
+    <div class="form-group">
+        <label for="crosses_A">In teleop, how many time the robot crossed "Category A"?</label>
+        <input type="number" class="form-control" id="crosses_A"
+               placeholder="Enter number of  Category A crossing"
+               ng-model="teleop.crosses_A">
+    </div>
 
-        <div class="form-group">
-            <label for="tries_low">In teleop, how many times the robot tried to scored into the low goal?</label>
-            <input type="number" class="form-control" id="tries_low" placeholder="Enter tries to low goal"
-                   ng-model="tries_low">
-        </div>
+    <div class="form-group">
+        <label for="crosses_B">In teleop, how many time the robot crossed the "Category B"?</label>
+        <input type="number" class="form-control" id="crosses_B"
+               placeholder="Enter number of Category B crossing"
+               ng-model="teleop.crosses_B">
+    </div>
 
-        <hr class="separator">
+    <div class="form-group">
+        <label for="crosses_C">In teleop, how many time the robot crossed the "Category C"?</label>
+        <input type="number" class="form-control" id="crosses_C"
+               placeholder="Enter number of Category C crossing"
+               ng-model="teleop.crosses_C">
+    </div>
 
-        <label>Did The robot tried to do SCALE?</label>
-        <div class="btn-group " data-toggle="buttons">
 
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="scale-try-yes" autocomplete="off">
+    <div class="form-group">
+        <label for="crosses_D">In teleop, how many time the robot crossed the "Category D"?</label>
+        <input type="number" class="form-control" id="crosses_D"
+               placeholder="Enter number of Category D crossing"
+               ng-model="teleop.crosses_D">
+    </div>
+
+    <div class="form-group">
+        <label for="scores_high">In teleop, how many times the robot scored into the high goal?</label>
+        <input type="number" class="form-control" id="scores_high"
+               placeholder="Enter scores to high goal"
+               ng-model="teleop.scores_high">
+    </div>
+
+    <div class="form-group">
+        <label for="tries_high">In teleop, how many times the robot tried to score into the high
+            goal (with no success)?</label>
+        <input type="number" class="form-control" id="tries_high" placeholder="Enter tries to high goal"
+               ng-model="teleop.tries_high">
+    </div>
+
+    <div class="form-group">
+        <label for="scores_low">In teleop, how many times the robot scored into the low goal?</label>
+        <input type="number" class="form-control" id="scores_low" placeholder="Enter scores to low goal"
+               ng-model="teleop.scores_low">
+    </div>
+
+    <div class="form-group">
+        <label for="tries_low">In teleop, how many times the robot tried to scored into the low
+            goal (with no success)?</label>
+        <input type="number" class="form-control" id="tries_low" placeholder="Enter tries to low goal"
+               ng-model="teleop.tries_low">
+    </div>
+
+    <hr class="separator">
+
+    <label>Did The robot tried to do SCALE?</label>
+
+    <div class="col-xs-12 btn-group">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="scale-try-yes" ng-class="{'active': getMissionEndGame('scale-try')}"
+                    ng-click="setMissionEndGame('scale-try', true)">
                 Yes <br> (כן)
-            </label>
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="scale-try-no" autocomplete="off">
-                No <br> (לא)
-            </label>
+            </button>
         </div>
 
-        <label>Did The robot succeeded doing SCALE?</label>
-        <div class="btn-group " data-toggle="buttons">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="scale-try-no" ng-class="{'active': !getMissionEndGame('scale-try') && getMissionEndGame('scale-try')!== undefined}"
+                    ng-click="setMissionEndGame('scale-try', false)">
+                No <br> (לא)
+            </button>
+        </div>
 
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="scale-yes" autocomplete="off">
+    </div> <br>
+
+    <label>Did The robot succeeded doing SCALE?</label>
+    <div class="col-xs-12 btn-group">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="scale-yes" ng-class="{'active': getMissionEndGame('scale')}"
+                    ng-click="setMissionEndGame('scale', true)">
                 Yes <br> (כן)
-            </label>
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="scale-no" autocomplete="off">
-                No <br> (לא)
-            </label>
+            </button>
         </div>
 
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="scale-no" ng-class="{'active': !getMissionEndGame('scale') && getMissionEndGame('scale')!== undefined}"
+                    ng-click="setMissionEndGame('scale', false)">
+                No <br> (לא)
+            </button>
+        </div>
 
-        <label>Did The robot was a defence robot?</label>
-        <div class="btn-group " data-toggle="buttons">
+    </div> <br>
 
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="defence-yes" autocomplete="off">
+
+    <label>Did The robot was a defence robot?</label>
+    <div class="col-xs-12 btn-group">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="defence-robot-yes" ng-class="{'active': getMissionEndGame('defence-robot')}"
+                    ng-click="setGeneral('defence-robot', true)">
                 Yes <br> (כן)
-            </label>
-            <label class="btn btn-lg btn-primary col-xs-6">
-                <input type="radio" name="options" id="defence-no" autocomplete="off">
-                No <br> (לא)
-            </label>
+            </button>
         </div>
 
-        <hr class="separator">
+        <div class="col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg col-xs-5"
+                    id="defence-robot-no" ng-class="{'active': !getGeneral('defence-robot') && getGeneral('defence-robot') !== undefined}"
+                    ng-click="setGeneral('defence-robot', false)">
+                No <br> (לא)
+            </button>
+        </div>
+
+    </div> <br>
+
+    <hr class="separator">
 
 
-        <label>Comments: </label>
-        <textarea class="form-control" rows="3"></textarea>
+    <label>Comments:</label>
+    <textarea class="form-control" rows="3" ng-model="general.comment"></textarea>
 
 
-
-
-            <button class="btn btn-default save-button col-xs-12">Save</button>
+    <button class="btn btn-default save-button col-xs-12" ng-click="print()">Save</button>
     </form>
 </div>
 </body>
