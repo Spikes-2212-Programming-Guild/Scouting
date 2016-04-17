@@ -59,10 +59,10 @@ angular.module('myApp', [])
   $scope.print = function(){
 
     var to_print = [$scope.info.scouter_name, $scope.info.team_number, $scope.info.scouter_name, $scope.defences.A, $scope.defences.B,
-        $scope.defences.C, $scope.defences.D, $scope.auto.reached, $scope.auto.crroses, $scope.auto.score,
+        $scope.defences.C, $scope.defences.D, $scope.auto.reached, $scope.auto.crosses, $scope.auto.score,
         $scope.teleop.crosses_low_bar, $scope.teleop.crosses_A, $scope.teleop.crosses_B, $scope.teleop.crosses_C,
         $scope.teleop.crosses_D, $scope.teleop.scores_low, $scope.teleop.tries_low, $scope.teleop.scores_high,
-        $scope.teleop.tries_high, $scope.end_game.scale_try, $scope.end_game.scale, $scope.general.defenc_robot,
+        $scope.teleop.tries_high, $scope.end_game.scaleTry, $scope.end_game.scale, $scope.general.defenc_robot,
         $scope.general.comment];
 
     to_print = "\"" + to_print.join("\",\"") + "\"";
